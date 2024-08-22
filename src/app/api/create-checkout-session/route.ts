@@ -37,6 +37,16 @@ export async function POST(request: NextRequest) {
       mode: 'payment',
       success_url: `${process.env.NEXT_PUBLIC_URL}/success`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/cancel`,
+      custom_fields: [
+        {
+          'key': 'customer_notes',
+          'label': {
+            'type': 'custom',
+            'custom': 'Notes for your order'
+          },
+          'type': 'text',
+        },
+      ]
     });
 
     // Return the session ID
